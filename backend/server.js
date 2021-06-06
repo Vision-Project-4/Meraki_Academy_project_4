@@ -5,10 +5,14 @@ const { check, validationResult } = require("express-validator");
 
 const db = require("./db/db");
 const userModel = require("./db/models/user");
+const roleModel = require("./db/models/role")
 
+
+//
 const articlesRouter = require("./routers/routes/articles");
 const userDataRouter = require("./routers/routes/userdata");
 const commentRouter = require("./routers/routes/comments");
+const loginRouter = require("./routers/routes/auth/login")
 
 const app = express();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -26,7 +30,7 @@ app.use(cors());
 
 app.use("/articles", articlesRouter);
 app.use("/userData", userDataRouter);
-
+app.use("/login", loginRouter);
 app.use("/articles/:id/comments", commentRouter);
 
 // app.use(authRouter);
@@ -50,7 +54,7 @@ app.post(
   urlencodedParser,
   [
     
-    check("id", "ID consist of 10 numbers")
+    check("id_number", "ID consist of 10 numbers")
       .exists()
       .isLength({ min: 10, max: 10 }),
     check("email", "Email is not valid").exists().isEmail().normalizeEmail(),
@@ -64,7 +68,7 @@ app.post(
       const alert = errors.array();
       res.json(alert);
     } else {
-      const { nationality, id_number, name, age, email, password } = req.body;
+      const { nationality, id_number, name, age, email, password,role } = req.body;
       const user = new userModel({
         nationality,
         id_number,
@@ -72,6 +76,7 @@ app.post(
         age,
         email,
         password,
+        role
       });
       user.save().then((result) => {
         res.json(result);
@@ -79,6 +84,23 @@ app.post(
     }
   }
 );
+
+
+app.post("/role", (req, res ) =>{
+  const {role , permissions } = req.body
+
+  const newRole = new roleModel({
+    role,
+    permissions 
+  })
+
+  newRole.save().then((result)=>{
+    res.json(result)
+  }).catch((err)=>{
+    res.json(err)
+  })
+
+})
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

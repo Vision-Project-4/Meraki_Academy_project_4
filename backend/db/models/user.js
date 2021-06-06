@@ -11,12 +11,13 @@ const userSchema = new mongoose.Schema({
   age: { type: Number},
   email: { type: String, unique: true },
   password: { type: String},
+  role: {type: mongoose.Schema.ObjectId , ref :"Role"}
 });
 
-// users.pre("save", async function () {
-//   this.email = this.email.toLowerCase();
-//   this.password = await bcrypt.hash(this.password, 10);
-// });
+userSchema.pre("save", async function () {
+   this.email = this.email.toLowerCase();
+   this.password = await bcrypt.hash(this.password, 10);
+ });
 
 
 
