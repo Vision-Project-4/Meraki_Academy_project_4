@@ -1,8 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navigation = () => {
-	return <div className="App">Navigation component</div>;
+const Navigation = ({token}) => {
+	return(  
+		<>
+		<Link to="/home">Home</Link>
+		<Link to="/about">About</Link>
+		<Link to="/articles">Articles</Link>
+		<Link to="/contact">Contact</Link>
+		<Link to="/login">Login</Link>
+	 <div className="App">Navigation component</div>
+	 </>
+	)
 };
 
 export default Navigation;

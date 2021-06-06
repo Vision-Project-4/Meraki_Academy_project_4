@@ -34,7 +34,7 @@ const update_commentByID = (req, res) => {
   let _id = req.params.id;
 
   article.findOneAndUpdate(
-    { id: _id },
+    { _id},
     req.body,
     { new: true }
   ).then((result)=>{
