@@ -1,16 +1,14 @@
-
-
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { check, validationResult } = require("express-validator");
 
-const db = require('./db/db');
+const db = require("./db/db");
+const userModel = require("./db/models/user");
 
-const articlesRouter = require("./routers/routes/articles")
-const userDataRouter = require("./routers/routes/userdata")
-const commentRouter=require("./routers/routes/comments")
-
+const articlesRouter = require("./routers/routes/articles");
+const userDataRouter = require("./routers/routes/userdata");
+const commentRouter = require("./routers/routes/comments");
 
 const app = express();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -20,29 +18,20 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 //built-in middlewares
 app.use(express.json());
 
-
-
-
-
-
-
-
 //third-party middleware
 app.use(cors());
 
 //app routers
 // app.use('/users', usersRouter);
 
-app.use('/articles', articlesRouter);
-app.use('/userData', userDataRouter);
+app.use("/articles", articlesRouter);
+app.use("/userData", userDataRouter);
 
-app.use("/articles/:id/comments",commentRouter);
-
+app.use("/articles/:id/comments", commentRouter);
 
 // app.use(authRouter);
 // app.use(commentsRouter);
 // app.use(roleRouter);
-
 
 // Set templating engine
 app.set("view engine", "ejs");
@@ -56,13 +45,11 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 
-
-
-
 app.post(
   "/register",
   urlencodedParser,
   [
+    
     check("id", "ID consist of 10 numbers")
       .exists()
       .isLength({ min: 10, max: 10 }),
@@ -73,13 +60,23 @@ app.post(
   ],
   (req, res) => {
     const errors = validationResult(req);
-	if(!errors.isEmpty()){
-		// return res.status(422).jsonp(errors.array())
-		const alert = errors.array();
-		res.render('register', {alert})
-	}else{
-		user.save()
-	}
+    if (!errors.isEmpty()) {
+      const alert = errors.array();
+      res.json(alert);
+    } else {
+      const { nationality, id_number, name, age, email, password } = req.body;
+      const user = new userModel({
+        nationality,
+        id_number,
+        name,
+        age,
+        email,
+        password,
+      });
+      user.save().then((result) => {
+        res.json(result);
+      });
+    }
   }
 );
 
