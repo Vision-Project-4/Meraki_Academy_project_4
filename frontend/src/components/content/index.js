@@ -18,7 +18,6 @@ const Content = () => {
     <>
   <div>
 
-    <Route render={()=><Navigation token={token}/>}/>
     <Switch>
     <Route exact path="/home"   component={Home} /> 
     <Route exact path="/about"  component={About} />

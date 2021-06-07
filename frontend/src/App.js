@@ -7,7 +7,7 @@ import Content from "./components/content/index";
 
 const App = () => {
 	return (<> 
-	{/* <Header /> */}
+	{ <Header /> }
 	<Content />
 	    
 
