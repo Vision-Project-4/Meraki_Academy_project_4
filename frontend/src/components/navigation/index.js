@@ -9,7 +9,6 @@ const Navigation = ({token}) => {
 		<Link to="/articles">Articles</Link>
 		<Link to="/contact">Contact</Link>
 		<Link to="/login">Login</Link>
-	 <div className="App">Navigation component</div>
 	 </>
 	)
 };
