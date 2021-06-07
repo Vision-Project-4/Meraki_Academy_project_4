@@ -2,6 +2,7 @@ const articles = require("../../db/models/articles");
 
 const createNewArticles = (req, res) => {
   const { title, description, img } = req.body;
+  console.log(req.body,"9999")
   const newArticles = new articles({
     title,
     description,
