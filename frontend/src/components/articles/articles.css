@@ -1,0 +1,28 @@
+.article1{
+
+}
+.img{
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+}
+.Symptoms{
+    width: 30%;
+    
+}
+.article_1{
+    display: flex;
+    border: solid 1px #F78832;
+}
+.article_2{
+    display: flex;
+    border: solid 1px #F78832;;
+}
+.article_3{
+    display: flex;
+    border: solid 1px #F78832;;
+}
+.article_4{
+    display: flex;
+    border: solid 1px #F78832;;
+}
