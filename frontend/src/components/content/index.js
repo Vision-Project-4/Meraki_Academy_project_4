@@ -7,6 +7,7 @@ import About from "../about"
 import Articles from "../articles"
 import Contact from "../contact"
 import Login from "../login";
+import Article from "../article";
 
 
 
@@ -24,6 +25,7 @@ const Content = () => {
     <Route exact path="/articles"   component={Articles} />
     <Route exact path="/contact"  component={Contact} />
      <Route exact path="/login" render={()=><Login setToken={setToken}/>}/> 
+     <Route path="/articles/:articlesId" component={Article} />
      </Switch>
      
      
