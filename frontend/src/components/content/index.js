@@ -8,6 +8,7 @@ import Articles from "../articles"
 import Contact from "../contact"
 import Login from "../login";
 import Article from "../article";
+import Register from "../../components/register/index";
 
 
 
@@ -24,6 +25,7 @@ const Content = () => {
     <Route exact path="/about"  component={About} />
     <Route exact path="/articles"   component={Articles} />
     <Route exact path="/contact"  component={Contact} />
+    <Route exact path="/register"  component={Register} />
      <Route exact path="/login" render={()=><Login setToken={setToken}/>}/> 
      <Route path="/articles/:articlesId" component={Article} />
      </Switch>
