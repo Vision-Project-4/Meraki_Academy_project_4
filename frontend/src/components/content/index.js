@@ -24,9 +24,10 @@ const Content = () => {
     <Route exact path="/about"  component={About} />
     <Route exact path="/articles"   component={Articles} />
     <Route exact path="/contact"  component={Contact} />
-     <Route exact path="/login" render={()=><Login setToken={setToken}/>}/> 
+     <Route exact path="/login" render={()=><Login func={setToken}/>}/> 
      <Route path="/articles/:articlesId" component={Article} />
      </Switch>
+     {console.log(token)}
      
      
   </div>
