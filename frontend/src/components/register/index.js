@@ -1,24 +1,23 @@
 import { React, useState } from "react";
 import axios from "axios";
 
-export default function index() {
-  const [idNumber, setIdNumber] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+export default function Register() {
   const [nationality, setNationality] = useState("");
+  const [idNumber, setIdNumber] = useState("");
+  const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [form, setForm] = useState(false);
   const [t, setTrue] = useState(false);
   const [x, setX] = useState(false);
-
-  const Register = () => {
+  
+  const createUser = () => {
     axios
       .post("http://localhost:5000/user", {
-        idNumber,
-        firstName,
-        lastName,
         nationality,
+        idNumber,
+        name,
         age,
         email,
         password,
@@ -36,65 +35,81 @@ export default function index() {
         console.log(err);
       });
   };
-
+  
   return (
     <div className="Register">
-      <input
-        type="number"
-        placeholder="ID number here"
-        onChange={(e) => {
-          setIdNumber(e.target.value);
-        }}
-      />
+      <input type="radio" id="Jordanian" name="nationality" value="Jordanian" />
+      <label for="Jordanian">Jordanian</label>
 
+      <br />
       <input
-        type="text"
-        placeholder="First Name here"
-        onChange={(e) => {
-          setFirstName(e.target.value);
-        }}
+        type="radio"
+        id="Non-Jordanian"
+        name="nationality"
+        value="Non-Jordanian"
       />
+      <label for="Non-Jordanian">Non-Jordanian</label>
 
-      <input
-        type="text"
-        placeholder="Last Name here"
-        onChange={(e) => {
-          setLastName(e.target.value);
-        }}
-      />
 
-      <input
-        type="text"
-        placeholder="nationality here"
-        onChange={(e) => {
-          setNationality(e.target.value);
-        }}
-      />
+<div className="inputs">
+      <p>
+        ID Number /passport:
+        <input
+          type="number"
+          onChange={(e) => {
+            setIdNumber(e.target.value);
+          }}
+        />
+      </p>
 
-      <input
-        type="number"
-        placeholder="age here"
-        onChange={(e) => {
-          setAge(e.target.value);
-        }}
-      />
+      <p>
+        Name :
+        <input
+          type="text"
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
+      </p>
 
-      <input
-        type="email"
-        placeholder="email here"
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
+      <p>
+        Age :
+        <input
+          type="number"
+          onChange={(e) => {
+            setAge(e.target.value);
+          }}
+        />
+      </p>
 
-      <input
-        type="text"
-        placeholder="password here"
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-      />
-      <button onClick={Register}>Register</button>
+      <p>
+        Email :
+        <input
+          type="email"
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+      </p>
+
+      <p>
+        Password :
+        <input
+          type="text"
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+      </p>
+      </div>
+      <p>
+        {/* role :
+        <input type="radio" id="User" name="role" value="User" />
+        <label for="User">User</label>
+        <input type="radio" id="Employee" name="role" value="Employee" />
+        <label for="Employee">Employee</label> */}
+      </p>
+      <button onClick={createUser}>Register</button>
       {t ? (
         <div className="massageSuccessful">
           The user has been created successfully
