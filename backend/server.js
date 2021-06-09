@@ -12,7 +12,8 @@ const roleModel = require("./db/models/role")
 const articlesRouter = require("./routers/routes/articles");
 const userDataRouter = require("./routers/routes/userdata");
 const commentRouter = require("./routers/routes/comments");
-const loginRouter = require("./routers/routes/auth/login")
+const loginRouter = require("./routers/routes/auth/login");
+const userRouter = require("./routers/routes/user");
 
 const app = express();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -32,6 +33,7 @@ app.use("/articles", articlesRouter);
 app.use("/userData", userDataRouter);
 app.use("/login", loginRouter);
 app.use("/articles/:id/comments", commentRouter);
+app.use("/user",userRouter)
 
 // app.use(authRouter);
 // app.use(commentsRouter);
