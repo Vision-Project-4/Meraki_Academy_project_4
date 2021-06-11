@@ -14,7 +14,9 @@ const Login = (props) => {
 
     axios.post("http://localhost:5000/login", { email, password })
       .then((res) => {
+
         console.log(res.data)
+
         if(res.data.status === 404){
           setMessage(<div><p>The email is incorrect</p></div>)
           
@@ -22,10 +24,12 @@ const Login = (props) => {
           setMessage(<div><p>The password is incorrect</p></div>)
           
         }else{
+
         
           console.log(res.data.token)
           localStorage.setItem("token", res.data.token);
           props.func(res.data.token);
+
         
          history.push("/articles");
         }

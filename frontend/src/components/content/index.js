@@ -12,6 +12,7 @@ import Register from "../register";
 
 
 
+
 const Content = () => {
   const [token,setToken]  = useState("")
   // style={{ display: "flex", gap: "16px" }
@@ -23,6 +24,8 @@ const Content = () => {
     <Route exact path="/about"  component={About} />
     <Route exact path="/articles"   component={Articles} />
     <Route exact path="/contact"  component={Contact} />
+
+    <Route exact path="/register"  component={Register} />
      <Route exact path="/login" render={()=><Login func={setToken}/>}/> 
      <Route path="/articles/:articlesId" component={Article} />
      <Route exact path="/booking"   component={Booking} />

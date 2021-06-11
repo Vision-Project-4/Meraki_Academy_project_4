@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Register() {
+
   const [nationality, setNationality] = useState("Non Jordanian");
+
   const [id_number, setId_number] = useState("");
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [form, setForm] = useState(false);
   const [t, setTrue] = useState(false);
   const [x, setX] = useState(false);
   const [Jordanian, setJordanian] = useState(false);
@@ -28,7 +31,11 @@ export default function Register() {
 
       .then((res) => {
         console.log(res.data);
+
         if (res.data.length > 0) {
+          setTrue(true);
+          setX(false);
+        } else {
           setTrue(false);
           setX(true);
         } else {
@@ -42,6 +49,7 @@ export default function Register() {
   };
 
   return (
+
     <>
       <section>
         <div className="container">
