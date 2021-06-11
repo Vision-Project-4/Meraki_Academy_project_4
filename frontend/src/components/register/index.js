@@ -35,13 +35,11 @@ export default function Register() {
         if (res.data.length > 0) {
           setTrue(true);
           setX(false);
-        } else {
-          setTrue(false);
-          setX(true);
-        } else {
+        } else  {
           setTrue(true);
           setX(false);
         }
+
       })
       .catch((err) => {
         console.log(err);

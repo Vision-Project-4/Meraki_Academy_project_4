@@ -1,0 +1,10 @@
+.user {
+  display: flex;
+  align-items: baseline;
+  width: 10%;
+  justify-content: space-around;
+}
+input:disabled {
+  border: none;
+  background-color: white;
+}

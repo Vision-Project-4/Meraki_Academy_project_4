@@ -39,7 +39,7 @@ app.use(cors());
 app.use("/articles", articlesRouter);
 app.use("/userData", userDataRouter);
 app.use("/login", loginRouter);
-app.use("/articles/:id/comments", commentRouter);
+app.use("/comments", commentRouter);
 
 // app.use("/user",userRouter)
 app.use("/booking",bookingRouter)

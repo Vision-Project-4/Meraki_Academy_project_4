@@ -33,11 +33,13 @@ const getAllArticles = (req, res) => {
 
 const getArticlesById = (req, res) => {
   const id = req.params.id;
+  console.log(id,"0000");
   articles
     .findOne({ _id: id })
-    .populate("comments")
+    .populate({ path: 'comments', populate: {path: 'commenter', select:'name _id'} })
     .exec()
     .then((result) => {
+      console.log(result,"99999999")
       res.json(result);
     })
     .catch((err) => {

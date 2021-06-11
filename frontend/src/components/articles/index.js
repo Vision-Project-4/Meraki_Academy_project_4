@@ -21,11 +21,11 @@ const Articles = () => {
 
   const allAticles = articles.map((elem, i) => {
     return (
-      <section>
+      <section key={elem._id}>
       <div    className="container">
         <div className="row">
           <div className="col-lg-12 col-md-12 col-sm-12">
-            <div key={elem._id} className="article">
+            <div  className="article">
               <div className="container" style={{padding:"5%", backgroundColor:"#fff"}}>
                 <div className="row">
                   <div className="col-lg-6 col-md-6 col-sm-12">
