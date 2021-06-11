@@ -1,16 +1,44 @@
-import React from 'react';
-import { Route , Link } from 'react-router-dom';
-
+import React from "react";
+import { Route, Link } from "react-router-dom";
 
 const Header = () => {
-	return <div style={{ display: "flex", gap: "16px" }}>
-	{/* link acts like an `a` tag */}
-	<Link to="/"> Home </Link>
-	<Link to="/about"> About </Link>
-	<Link to="/login"> Sign Up </Link>
-	<Link to="/contact"> Contact</Link>
-	<Link to="/articles"> Articles</Link>
-  </div>
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-white">
+      <div className="navbar-brand">
+        <Link to="/home">
+          <i className="fas fa-shield-virus"></i>
+          <span>Vaccine</span>
+        </Link>
+      </div>
+      <button
+        className="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <Link to="/home"> Home </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/login"> Login </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/articles"> Articles</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/contact"> Contact us</Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 };
 
 export default Header;
