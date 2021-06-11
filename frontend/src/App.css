@@ -1,38 +1,122 @@
-.App {
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+h3{
+  font-size: 18px;
+}
+p{
+  font-size: 15px;
+}
+img{
+  width: 100%;
+}
+.navbar-brand{
+  width: 250px;
+  height: 50px;
   text-align: center;
+  margin-left: 80px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar-brand a:hover{
+  text-decoration: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar-brand i{
+  font-size: 30px;
+  color: #004E6A;
+  margin-right: 5px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.navbar-brand span{
+  color: #E74C3C;
+  font-style: italic;
 }
-
-.App-link {
-  color: #61dafb;
+.navbar-nav{
+  margin-right: 250px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar-nav .nav-item a{
+  color: #004E6A;
+  width: fit-content;
+}
+.navbar-nav .nav-item a:hover{
+  color: #E74C3C;
+  text-decoration: none;
+}
+nav ul li{
+  margin-left: 1.25rem;
+}
+ul li{
+  display: inline-block;
+  color: #004E6A;
+}
+ul li i{
+  color: #E74C3C;
+  font-size: 20px;
+  margin-right: 7px;
+}
+ul li .container p ,ul{
+  margin-top: 10px;
+  margin-left:20px;
+}
+/* .homeList .homeListItem:before{
+  font-family: 'FontAwesome';
+  content: '\f559';
+} */
+.btn-rounded{
+  border-radius: 25px;
+  background-color: #fff;
+  box-shadow: 0 0 1px 1px rgb(90 90 90 / 20%);
+  display: block;
+  margin: auto;
+}
+.btn-rounded i{
+  color: #004E6A;
+}
+section{
+  background-color: #EFEFEF;
+}
+h4{
+  color: #00749D;
+  display: inline;
+}
+#pink{
+  color: #E74C3C;
+  margin-left: 5px;
+  font-size: 25px;
+}
+p{
+  color: #004E6A;
+}
+.form{
+  box-shadow: 0 0 1px 1px rgb(90 90 90 / 20%);
+}
+.form .form-group label i{
+  font-size: 10px;
+  color: #E74C3C;
+  margin-bottom: 0.25rem;
+}
+.fa-ul li i{
+  font-size: 14px;
+  margin-top: 0.5rem;
+}
+.fa-ul li span{
+  font-size: 14px;
+  color: #004E6A;
+}
+h6{
+  margin-left: 20px;
+  color: #00749D;
+}
+/* .contact-info{
+  float: right;
+} */
+footer{
+  /* position: fixed; */
+  /* bottom: 0; */
+  width: 100%;
+}
+footer section{
+  padding-top: 1%;
+}
+a:hover{
+  text-decoration: none;
 }

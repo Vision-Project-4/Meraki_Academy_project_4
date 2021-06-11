@@ -35,10 +35,6 @@ const About = () => {
           We have a health sector that looks to the interests of the individual.
           </p>
         </div>
-
-        <div className="about4">
-          <p>Copyright © 2021, Vision platform. All rights reserved.</p>
-        </div>
       </div>
     </>
   );

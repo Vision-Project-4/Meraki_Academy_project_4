@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import Navigation from "../navigation/index";
 
-const Contact = () =>{
-  
-    return(
+const Contact = () => {
+  return (
+    <>
+      <p>Contact</p>
+    </>
+  )
+};
 
-        <p>Contact</p>
-    )
-}
-
-export default Contact
+export default Contact;

@@ -12,8 +12,15 @@ const roleModel = require("./db/models/role")
 const articlesRouter = require("./routers/routes/articles");
 const userDataRouter = require("./routers/routes/userdata");
 const commentRouter = require("./routers/routes/comments");
-const loginRouter = require("./routers/routes/auth/login");
+
+const loginRouter = require("./routers/routes/auth/login")
+// const userRouter = require("./routers/routes/user");
+const bookingRouter=require("./routers/routes/booking")
+
+
+
 const userRouter = require("./routers/routes/user");
+
 
 const app = express();
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -33,7 +40,13 @@ app.use("/articles", articlesRouter);
 app.use("/userData", userDataRouter);
 app.use("/login", loginRouter);
 app.use("/articles/:id/comments", commentRouter);
+
+// app.use("/user",userRouter)
+app.use("/booking",bookingRouter)
+
+
 app.use("/user",userRouter)
+
 
 // app.use(authRouter);
 // app.use(commentsRouter);
@@ -64,25 +77,44 @@ app.post(
       .exists()
       .isLength({ min: 8, max: 15 }),
   ],
-  (req, res) => {
+  async(req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       const alert = errors.array();
       res.json(alert);
     } else {
-      const { nationality, id_number, name, age, email, password,role } = req.body;
-      const user = new userModel({
+      const { nationality, id_number, name, age, email, password } = req.body;
+      let {role} = req.body
+      console.log(role)
+        
+      let role1;
+      await roleModel.findOne({role}).then((res)=>{
+        role1=res._id
+        console.log(role1)
+      }).catch((err)=>{
+        console.log(err)
+      })
+
+       const user = new userModel({
         nationality,
         id_number,
         name,
         age,
         email,
         password,
-        role
+        role:role1
+        
       });
-      user.save().then((result) => {
+       user.save().then((result) => {
         res.json(result);
       });
+        
+      
+
+
+
+      
+
     }
   }
 );

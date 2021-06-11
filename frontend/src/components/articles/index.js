@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React , { useState, useEffect }from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./articles.css";
@@ -21,14 +21,36 @@ const Articles = () => {
 
   const allAticles = articles.map((elem, i) => {
     return (
-        <div key={elem._id} className="article1" onClick={() => showMore(elem._id)}>
-          <h4>{elem.title}</h4>
-          <div className="article_1">
-            <p>{elem.description}</p>
-            <img src={elem.img}></img>
+      <section>
+      <div    className="container">
+        <div className="row">
+          <div className="col-lg-12 col-md-12 col-sm-12">
+            <div key={elem._id} className="article">
+              <div className="container" style={{padding:"5%", backgroundColor:"#fff"}}>
+                <div className="row">
+                  <div className="col-lg-6 col-md-6 col-sm-12">
+                    <img src={elem.img} />
+                  </div>
+                  <div className="col-lg-6 col-md-6 col-sm-12" style={{padding:"5% 2%"}}>
+                    <h3>
+                    {elem.title}
+                    </h3>
+                    <p>
+                    {elem.description}
+                    </p>
+                    <button type="button" className="btn btn-primary" onClick={() => showMore(elem._id)}>
+                      Read more
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          
         </div>
+      </div>
+
+      </section>
+
     );
   });
 
@@ -72,10 +94,11 @@ const Articles = () => {
 
   return (
     <>
-      <div className="articles">
-        {allAticles}
-        {/* {result} */}
+    <div>
+      {allAticles}
       </div>
+      
+
 
       {showAdd ? <button onClick={addArticle}>Add article</button> : <></>}
       {form ? (
@@ -105,7 +128,8 @@ const Articles = () => {
       ) : (
         ""
       )}
-    </>
+      
+          </>
   );
 };
 

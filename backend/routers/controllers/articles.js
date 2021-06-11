@@ -35,7 +35,8 @@ const getArticlesById = (req, res) => {
   const id = req.params.id;
   articles
     .findOne({ _id: id })
-
+    .populate("comments")
+    .exec()
     .then((result) => {
       res.json(result);
     })

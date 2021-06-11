@@ -1,60 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
 
-export default function Register() {
-
-  const [nationality, setNationality] = useState("Non Jordanian");
-
-  const [id_number, setId_number] = useState("");
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [form, setForm] = useState(false);
-  const [t, setTrue] = useState(false);
-  const [x, setX] = useState(false);
-  const [Jordanian, setJordanian] = useState(false);
-  const [role, setRole] = useState("User");
-  // const [Non_Jordanian, setNon_Jordanian] = useState(true)
-
-  const createUser = () => {
-    axios
-      .post("http://localhost:5000/register", {
-        nationality,
-        id_number,
-        name,
-        age,
-        email,
-        password,
-        role,
-      })
-
-      .then((res) => {
-        console.log(res.data);
-
-        if (res.data.length > 0) {
-          setTrue(true);
-          setX(false);
-        } else {
-          setTrue(false);
-          setX(true);
-        } else {
-          setTrue(true);
-          setX(false);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
+export default function signup() {
   return (
-
     <>
       <section>
         <div className="container">
           <div
-            className="row"
+            className="row"         
             style={{ justifyContent: "center", padding: "5%" }}
           >
             <form
@@ -70,16 +22,12 @@ export default function Register() {
                     <input
                       className="form-check-input"
                       type="radio"
-                      id="Jordanian"
-                      name="nationality"
-                      value="Jordanian"
-                      onChange={() => {
-                        setJordanian(true);
-                        setNationality("Jordanian");
-                      }}
-                      checked={Jordanian}
+                      name="gridRadios"
+                      id="gridRadios1"
+                      value="jor"
+                      checked
                     />
-                    <label className="form-check-label" htmlFor="gridRadios1">
+                    <label className="form-check-label" for="gridRadios1" >
                       Jordanian
                     </label>
                   </div>
@@ -87,22 +35,18 @@ export default function Register() {
                     <input
                       className="form-check-input"
                       type="radio"
-                      id="Non_Jordanian"
-                      name="nationality"
-                      value="Non_Jordanian"
-                      onChange={() => {
-                        setJordanian(false);
-                        setNationality("Non Jordanian");
-                      }}
+                      name="gridRadios"
+                      id="gridRadios2"
+                      value="non"
                     />
-                    <label className="form-check-label" htmlFor="gridRadios2">
+                    <label className="form-check-label" for="gridRadios2">
                       Non-Jordanian
                     </label>
                   </div>
                 </div>
               </fieldset>
               <div className="form-group">
-                <label htmlFor="id_number">
+                <label for="id_number">
                   <i className="fas fa-asterisk"></i> id_Number/id_Passport
                 </label>
                 <input
@@ -110,27 +54,21 @@ export default function Register() {
                   id="id_number"
                   className="id_number form-control"
                   placeholder="National ID"
-                  onChange={(e) => {
-                    setId_number(e.target.value);
-                  }}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="name">
+                <label for="name">
                   <i className="fas fa-asterisk"></i> Name
                 </label>
                 <input
                   type="text"
                   id="name"
                   className="name form-control"
-                  placeholder="Your Name"
-                  onChange={(e) => {
-                    setName(e.target.value);
-                  }}
+                  placeholder="Full Name"
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="age">
+                <label for="age">
                   <i className="fas fa-asterisk"></i> Age
                 </label>
                 <input
@@ -138,13 +76,10 @@ export default function Register() {
                   id="age"
                   className="age form-control"
                   placeholder="Your Age"
-                  onChange={(e) => {
-                    setAge(e.target.value);
-                  }}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="email">
+                <label for="email">
                   {" "}
                   <i className="fas fa-asterisk"></i> Email
                 </label>
@@ -154,12 +89,12 @@ export default function Register() {
                   className="email form-control"
                   placeholder="Enter your Email"
                   onChange={(e) => {
-                    setEmail(e.target.value);
+                    // setEmail(e.target.value);
                   }}
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="password">
+                <label for="password">
                   {" "}
                   <i className="fas fa-asterisk"></i> Password
                 </label>
@@ -169,7 +104,7 @@ export default function Register() {
                   className="password form-control"
                   placeholder="Enter your password"
                   onChange={(e) => {
-                    setPassword(e.target.value);
+                    // setPassword(e.target.value);
                   }}
                 />
               </div>
@@ -180,7 +115,7 @@ export default function Register() {
                   value="logged"
                   id="checkbox"
                 />
-                <label className="form-check-label" htmlFor="checkbox">
+                <label className="form-check-label" for="checkbox">
                   I Agree
                 </label>
               </div>
@@ -188,21 +123,11 @@ export default function Register() {
               <button
                 type="submit"
                 className="btn btn-primary"
-                onClick={createUser}
+                // onClick={funLogin}
                 style={{ margin: "auto", display: "block", width: "100%" }}
               >
                 Submit
               </button>
-              {t ? (
-                <div className="massageSuccessful">
-                  The user has been created successfully
-                </div>
-              ) : null}
-              {x ? (
-                <div className="massageError">
-                  Error happened while creating a new article, please try again
-                </div>
-              ) : null}
             </form>
           </div>
         </div>
