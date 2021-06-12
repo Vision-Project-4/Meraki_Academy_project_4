@@ -1,4 +1,5 @@
 .user {
+
     display: flex;
     align-items: baseline;
     width: 10%;
@@ -43,4 +44,9 @@
   
   
   
-  
+ 
+input:disabled {
+  border: none;
+  background-color: white;
+}
+

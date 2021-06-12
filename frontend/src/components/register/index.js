@@ -45,7 +45,9 @@ export default function Register() {
             <div className="massageSuccessful">
               The user has been created successfully
             </div>)
+
         }
+
       })
       .catch((err) => {
         console.log(err);
