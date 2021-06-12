@@ -1,28 +1,31 @@
-.article1{
-
-}
-.img{
-    width: 20%;
-    height: 20%;
-    border-radius: 50%;
-}
-.Symptoms{
-    width: 30%;
-    
-}
-.article_1{
-    display: flex;
-    border: solid 1px #F78832;
-}
-.article_2{
-    display: flex;
-    border: solid 1px #F78832;;
-}
-.article_3{
-    display: flex;
-    border: solid 1px #F78832;;
-}
-.article_4{
-    display: flex;
-    border: solid 1px #F78832;;
-}
+#input_1 {
+    width: 80%;
+    height: 27px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccf;
+    border-radius: 4px;
+    position: sticky;
+    left: 7%;
+  }
+  #addArticle {
+    border: 2px solid #1a92e6;
+    border-radius: 4px;
+    background-color: #1a92e6;
+    font-size: 15px;
+    color: white;
+    margin: 0;
+    position: sticky;
+    left: 7%;
+  }
+  #createArticles {
+    display: grid;
+    border: 2px solid #1a92e6;
+    border-radius: 4px;
+    background-color: #1a92e6;
+    font-size: 15px;
+    color: white;
+    position: sticky;
+    left: 7%;
+  }

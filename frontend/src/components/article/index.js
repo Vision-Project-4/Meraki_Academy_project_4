@@ -101,7 +101,8 @@ const Article = (props) => {
     const [updatedComment, setUpdatedComment] = useState("");
 
     return (
-      <div>
+      <div className="contant">
+
         <div className="user">
           <div className="userImage">
             <svg
@@ -109,19 +110,29 @@ const Article = (props) => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-person-circle"
+
+              className="bi bi-person-circle"
+
+
+
               viewBox="0 0 16 16"
             >
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
               <path
-                fill-rule="evenodd"
+
+                fillRule="evenodd"
+
                 d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
               />
             </svg>
           </div>
           <div className="userName">
             <p>{name}</p>
+
+            
           </div>
+          
+
         </div>
         <input
           type="text"
@@ -129,16 +140,19 @@ const Article = (props) => {
           disabled={updateId !== id}
           onChange={(e) => setUpdatedComment(e.target.value)}
         />
+
+        
         {commenterId === userId ? (
           <div className="comment">
-            <button onClick={() => updateComment(id, updatedComment)}>
+            <p onClick={() => updateComment(id, updatedComment)}>
               {updateId === id ? "Update" : "Edit"}
-            </button>
+            </p>
             {updateId === id ? (
-              <button onClick={() => setUpdateId(false)}>Cancel</button>
+              <p onClick={() => setUpdateId(false)}>Cancel</p>
             ) : null}
             {!updateId ? (
-              <button onClick={() => deleteComment(id)}>delete</button>
+              <p onClick={() => deleteComment(id)}>delete</p>
+
             ) : null}
           </div>
         ) : null}
@@ -147,6 +161,7 @@ const Article = (props) => {
   };
 
   const ShowComments = () => {
+    console.log(article)
     const comments = article.comments.map((comment) => {
       return (
         <Comment
@@ -162,9 +177,10 @@ const Article = (props) => {
   };
 
   return (
+    <>
     <div>
       <h4>{article.title}</h4>
-      <div>
+      <div className="text_img">
         <p>{article.description}</p>
         <img src={article.img}></img>
       </div>
@@ -175,17 +191,23 @@ const Article = (props) => {
             <ShowComments />
           </div>
         ) : null}
+        <div className="addComment">
         <input
+        className="add"
           type="text"
           placeholder="comment here"
+          value={comment}
           onChange={(e) => {
             setComment(e.target.value);
           }}
         />
-
-        <button onClick={addComment}>add comment</button>
+        
+        <button id="buttonCommente" onClick={addComment}>comment</button>
+        </div>
+        
       </div>
     </div>
+    </>
   );
 };
 

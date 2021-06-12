@@ -98,18 +98,21 @@ const Articles = () => {
       {allAticles}
       </div>
       
+    <div className="articles">
 
-
-      {showAdd ? <button onClick={addArticle}>Add article</button> : <></>}
+      {showAdd ? <button id="addArticle" onClick={addArticle}>Add article</button> : <></>}
       {form ? (
         <div>
+         
           <input
+          id="input_1"
             placeholder="title here"
             onChange={(e) => {
               setTitle(e.target.value);
             }}
           />
           <input
+          id="input_1"
             type="text"
             placeholder="description here"
             onChange={(e) => {
@@ -117,17 +120,22 @@ const Articles = () => {
             }}
           />
           <input
+          id="input_1"
             type="text"
             placeholder="img here"
             onChange={(e) => {
               setImg(e.target.value);
             }}
           />
-          <button onClick={CreateArticle}>create articles</button>
+        
+
+         
+          <button id="createArticles" onClick={CreateArticle}>create articles</button>
         </div>
       ) : (
         ""
       )}
+      </div>
       
           </>
   );

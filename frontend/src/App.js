@@ -11,7 +11,6 @@ const App = () => {
   const [ordered, setOrdered] = useState(false);
   return (
     <>
-      {<Header />}
       {<Content />}
       {<Footer />}
     </>

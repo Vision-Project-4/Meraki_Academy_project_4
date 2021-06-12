@@ -47,7 +47,7 @@ Users.findOne({ email: req.body.email })
         const secret = process.env.SECRET;
         const token = jwt.sign(payload, secret, options);
 
-        res.json({ token: token });
+        res.json({ token: token , userId : id });
       }})
     });
   }

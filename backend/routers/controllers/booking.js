@@ -2,12 +2,12 @@ const express = require("express");
 const booking = require("../../db/models/booking");
 
 const create_new_booking = (req, res) => {
-  const { vaccineName, name, Date, Time } = req.body;
+  const { vaccineName, name, } = req.body;
+  const date = new Date(req.body.date)
   const booking1 = new booking({
     vaccineName,
     name,
-    Date,
-    Time,
+    date,
   });
   booking1
     .save()

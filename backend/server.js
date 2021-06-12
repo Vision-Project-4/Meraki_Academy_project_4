@@ -60,6 +60,17 @@ app.get("", (req, res) => {
   res.render("index");
 });
 
+app.post("/info", (req, res) => {
+  const {_id} = req.body
+  userModel.findOne({_id}).then((result)=>{
+    res.json(result)
+    console.log(result)
+  }).catch((err)=>{
+    res.json(err)
+  })
+
+});
+
 app.get("/register", (req, res) => {
   res.render("register");
 });
