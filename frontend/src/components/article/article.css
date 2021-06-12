@@ -1,0 +1,46 @@
+.user {
+    display: flex;
+    align-items: baseline;
+    width: 10%;
+    justify-content: space-around;
+  }
+  input:disabled {
+    border: none;
+    background-color: white;
+  }
+  .comment{
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: -webkit-body;
+      display: flex;
+      gap: 9px;
+  }
+  .addComment{
+    display: flex;
+      gap: 15px;
+  
+  }
+  .add {
+    border: solid 2px;
+    color: steelblue;
+    border-radius: 7px;
+  }
+  #buttonCommente{
+    border: solid 2px;
+    color: steelblue;
+    border-radius: 7px; 
+    background-color: white;
+    width: 17%;
+  
+  }
+  .text_img {
+    display: flex;
+    
+  }
+  .comments {
+    margin-left: 3%;
+  }
+  
+  
+  
+  

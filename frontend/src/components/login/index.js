@@ -18,20 +18,21 @@ const Login = (props) => {
         console.log(res.data)
 
         if(res.data.status === 404){
-          setMessage(<div><p>The email is incorrect</p></div>)
+          setMessage(<div style={{ margin: "auto", display: "block", marginLeft: "90px" , marginTop: "30px" }}><p>The email is incorrect</p></div>)
           
         }else if (res.data.status === 403){
-          setMessage(<div><p>The password is incorrect</p></div>)
+          setMessage(<div style={{ margin: "auto", display: "block", marginLeft: "90px" , marginTop: "30px" }}><p>The password is incorrect</p></div>)
           
         }else{
 
         
           console.log(res.data.token)
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("userId", res.data.userId);
           props.func(res.data.token);
 
         
-         history.push("/articles");
+         history.push("/home");
         }
       })
       .catch((err) => {
@@ -97,11 +98,11 @@ const Login = (props) => {
                 type="submit"
                 className="btn btn-primary"
                 onClick={funLogin}
-                style={{ margin: "auto", display: "block", width: "100%" }}
+                style={{ margin: "auto", display: "block", width: "70%" }}
               >
                 Login
               </button>
-              <Link to="/register"><button className="btn btn-primary" style={{ margin: "auto", display: "block", width: "100%" }}> Sign Up </button></Link>
+              <Link to="/register"><button className="btn btn-primary" style={{ margin: "auto", display: "block", width: "70%" , marginTop: "10px" }}> Sign Up </button></Link>
               {message}
             </form>
             

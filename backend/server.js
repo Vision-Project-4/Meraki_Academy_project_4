@@ -39,7 +39,7 @@ app.use(cors());
 app.use("/articles", articlesRouter);
 app.use("/userData", userDataRouter);
 app.use("/login", loginRouter);
-app.use("/articles/:id/comments", commentRouter);
+app.use("/comments", commentRouter);
 
 // app.use("/user",userRouter)
 app.use("/booking",bookingRouter)
@@ -58,6 +58,17 @@ app.set("view engine", "ejs");
 // Navigation
 app.get("", (req, res) => {
   res.render("index");
+});
+
+app.post("/info", (req, res) => {
+  const {_id} = req.body
+  userModel.findOne({_id}).then((result)=>{
+    res.json(result)
+    console.log(result)
+  }).catch((err)=>{
+    res.json(err)
+  })
+
 });
 
 app.get("/register", (req, res) => {

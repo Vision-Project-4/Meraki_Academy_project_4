@@ -21,11 +21,11 @@ const Articles = () => {
 
   const allAticles = articles.map((elem, i) => {
     return (
-      <section>
+      <section key={elem._id}>
       <div    className="container">
         <div className="row">
           <div className="col-lg-12 col-md-12 col-sm-12">
-            <div key={elem._id} className="article">
+            <div  className="article">
               <div className="container" style={{padding:"5%", backgroundColor:"#fff"}}>
                 <div className="row">
                   <div className="col-lg-6 col-md-6 col-sm-12">
@@ -98,18 +98,21 @@ const Articles = () => {
       {allAticles}
       </div>
       
+    <div className="articles">
 
-
-      {showAdd ? <button onClick={addArticle}>Add article</button> : <></>}
+      {showAdd ? <button id="addArticle" onClick={addArticle}>Add article</button> : <></>}
       {form ? (
         <div>
+         
           <input
+          id="input_1"
             placeholder="title here"
             onChange={(e) => {
               setTitle(e.target.value);
             }}
           />
           <input
+          id="input_1"
             type="text"
             placeholder="description here"
             onChange={(e) => {
@@ -117,17 +120,22 @@ const Articles = () => {
             }}
           />
           <input
+          id="input_1"
             type="text"
             placeholder="img here"
             onChange={(e) => {
               setImg(e.target.value);
             }}
           />
-          <button onClick={CreateArticle}>create articles</button>
+        
+
+         
+          <button id="createArticles" onClick={CreateArticle}>create articles</button>
         </div>
       ) : (
         ""
       )}
+      </div>
       
           </>
   );

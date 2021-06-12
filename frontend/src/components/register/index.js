@@ -11,13 +11,16 @@ export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [form, setForm] = useState(false);
-  const [t, setTrue] = useState(false);
+  const [message , setMessage] = useState("")
+  const [t, setTrue] = useState("");
   const [x, setX] = useState(false);
   const [Jordanian, setJordanian] = useState(false);
   const [role, setRole] = useState("User");
   // const [Non_Jordanian, setNon_Jordanian] = useState(true)
 
-  const createUser = () => {
+  const createUser = (e) => { 
+    e.preventDefault()
+
     axios
       .post("http://localhost:5000/register", {
         nationality,
@@ -33,20 +36,24 @@ export default function Register() {
         console.log(res.data);
 
         if (res.data.length > 0) {
-          setTrue(true);
-          setX(false);
-        } else {
-          setTrue(false);
-          setX(true);
-        } else {
-          setTrue(true);
-          setX(false);
+          setMessage(<div className="massageError">
+          Error happened while creating a new article, please try again
+        </div>)
+          
+        }else  {
+          setMessage(
+            <div className="massageSuccessful">
+              The user has been created successfully
+            </div>)
         }
       })
       .catch((err) => {
         console.log(err);
       });
+
   };
+
+
 
   return (
 
@@ -193,16 +200,7 @@ export default function Register() {
               >
                 Submit
               </button>
-              {t ? (
-                <div className="massageSuccessful">
-                  The user has been created successfully
-                </div>
-              ) : null}
-              {x ? (
-                <div className="massageError">
-                  Error happened while creating a new article, please try again
-                </div>
-              ) : null}
+            {message}
             </form>
           </div>
         </div>

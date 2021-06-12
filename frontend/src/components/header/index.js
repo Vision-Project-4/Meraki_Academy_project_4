@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState , useEffect} from "react";
 import { Route, Link } from "react-router-dom";
 
-const Header = () => {
-  return (
+const Header = ({token}) => {
+  console.log(token)
+  const [token1 , setToken1] = useState("")
+  useEffect(() => {
+    setToken1(token)
+    // every time the status state changes the function will run
+  }, [token]);
+
+
+  return ( <>
     <nav className="navbar navbar-expand-lg navbar-light bg-white">
       <div className="navbar-brand">
         <Link to="/home">
@@ -23,21 +31,23 @@ const Header = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <Link to="/home"> Home </Link>
+          {token1 ? <div><li className="nav-item">
+            <Link to="/booking"> booking </Link>
           </li>
           <li className="nav-item">
+          <Link to="/getbooking"> My Booking </Link>
+          </li></div> : "" }
+          {!token1 ? <div><li className="nav-item">
             <Link to="/login"> Login </Link>
           </li>
+       </div>: "" }
           <li className="nav-item">
             <Link to="/articles"> Articles</Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/contact"> Contact us</Link>
           </li>
         </ul>
       </div>
     </nav>
+    </>
   );
 };
 

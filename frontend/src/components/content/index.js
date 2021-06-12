@@ -9,6 +9,7 @@ import Login from "../login";
 import Article from "../article";
 import Booking from "../booking/index"
 import Register from "../register";
+import Header from "../header";
 
 
 
@@ -18,18 +19,22 @@ const Content = () => {
   // style={{ display: "flex", gap: "16px" }
 	return( 
     <>
+    <Header
+          token={token}
+        />
+
     <Switch>
+    
     <Route exact path="/"   component={Home} />
     <Route exact path="/home"   component={Home} /> 
-    <Route exact path="/about"  component={About} />
     <Route exact path="/articles"   component={Articles} />
-    <Route exact path="/contact"  component={Contact} />
-
     <Route exact path="/register"  component={Register} />
      <Route exact path="/login" render={()=><Login func={setToken}/>}/> 
      <Route path="/articles/:articlesId" component={Article} />
-     <Route exact path="/booking"   component={Booking} />
+     <Route exact path="/booking"   render={()=><Booking token={token}/>}/>
+     <Route exact path="/getbooking"   render={()=><getBooking token={token}/>}/>
      <Route exact path="/register"  component={Register} />
+     
      </Switch>
      
      
