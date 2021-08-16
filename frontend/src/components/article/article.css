@@ -13,11 +13,11 @@
     cursor: pointer;
     text-decoration: underline;
     font-family: -webkit-body;
-      display: flex;
+      /* display: flex; */
       gap: 9px;
   }
   .addComment{
-    display: flex;
+    /* display: flex; */
       gap: 15px;
   
   }
@@ -35,13 +35,15 @@
   
   }
   .text_img {
-    display: flex;
+    
     
   }
   .comments {
     margin-left: 3%;
   }
-  
+  .img-vaccine{
+    width: 20%;
+  }
   
   
  
@@ -49,4 +51,16 @@ input:disabled {
   border: none;
   background-color: white;
 }
-
+p.para-vaccine {
+  width: 52%;
+  text-align: initial;
+}
+.paragraph {
+  text-align: -webkit-center;
+}
+.showArticle {
+  text-align: -webkit-center;
+}
+.comments {
+  margin-left: 3%;
+}
