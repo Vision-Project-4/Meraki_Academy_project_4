@@ -17,31 +17,29 @@
       gap: 9px;
   }
   .addComment{
-    display: flex;
+    /* display: flex; */
       gap: 15px;
   
   }
   .add {
-    border: solid 2px;
-    color: steelblue;
-    border-radius: 7px;
+    
   }
   #buttonCommente{
-    border: solid 2px;
-    color: steelblue;
-    border-radius: 7px; 
-    background-color: white;
-    width: 17%;
+    
   
   }
   .text_img {
-    display: flex;
+    
     
   }
   .comments {
     margin-left: 3%;
+    text-align: center;
   }
-  
+  .img-vaccine{
+    width: 70%;
+    height: 78%;
+  }
   
   
  
@@ -50,3 +48,12 @@ input:disabled {
   background-color: white;
 }
 
+.paragraph {
+  /* text-align: -webkit-center; */
+}
+.showArticle {
+  /* text-align: -webkit-center; */
+}
+.comments {
+  margin-left: 3%;
+}
