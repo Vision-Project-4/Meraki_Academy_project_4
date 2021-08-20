@@ -35,7 +35,7 @@ const Header = ({token}) => {
             <Link to="/booking"> booking </Link>
           </li>
           <li className="nav-item">
-          <Link to="/getbooking"> My Booking </Link>
+          <Link to="/myBooking"> My Booking </Link>
           </li></div> : "" }
           {!token1 ? <div><li className="nav-item">
             <Link to="/login"> Login </Link>
