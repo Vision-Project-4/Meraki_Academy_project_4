@@ -28,13 +28,9 @@ const createNewUser = (req, res) => {
 
 const getUserDataById = (req, res) => {
   const id = req.params.id;
-  console.log(id,"0000");
   user
     .findOne({ _id: id })
-    .populate()
-    .exec()
     .then((result) => {
-      console.log(result,"99999999")
       res.json(result);
     })
     .catch((err) => {

@@ -6,7 +6,7 @@ const create_new_booking = (req, res) => {
   const date = new Date(req.body.date)
   const booking1 = new booking({
     vaccineName,
-    name,
+    user: name,
     date,
   });
   booking1
@@ -60,6 +60,21 @@ const git_bookingById=(req,res)=>{
     });
 }
 
+const getBookingByUser=(req,res)=>{
+  let id=req.params.id
+  booking
+  .findOne({user: id})
+  .populate('user')
+  .exec()
+  .then((result) => {
+    console.log(result, '+++++++++++++++++++++++++++');
+    res.json(result);
+  })
+  .catch((err) => {
+    res.json(err);
+  });
+}
+
 const update_booking=(req,res)=>{
     const _id = req.params.id;
 
@@ -84,5 +99,6 @@ module.exports = {
   getAll_booking,
   delete_bookingById,
   git_bookingById,
-  update_booking
+  update_booking,
+  getBookingByUser
 };

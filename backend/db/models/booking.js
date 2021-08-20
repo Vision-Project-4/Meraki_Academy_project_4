@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const bookingSchema = new mongoose.Schema({
   vaccineName: { type: String, require: true },
-  name: { type: mongoose.Schema.ObjectId, ref: "user" },
+  user: { type: mongoose.Schema.ObjectId, ref: "User" },
   date: { type: Date,  },
   // Time: { type: String },
 });
