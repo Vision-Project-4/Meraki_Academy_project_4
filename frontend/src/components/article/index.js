@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./article.css";
-
 const Article = (props) => {
   const [article, setArticle] = useState({});
   const [comment, setComment] = useState([]);
   const [updateId, setUpdateId] = useState("");
   const getArticleById = () => {
     const id = props.match.params.articlesId;
-
     axios
       .get(`http://localhost:5000/articles/${id}`)
       .then((result) => {
@@ -21,10 +19,8 @@ const Article = (props) => {
   useEffect(() => {
     getArticleById();
   }, []);
-
   const addComment = () => {
     const id = props.match.params.articlesId;
-
     const token = localStorage.getItem("token");
     axios
       .post(
@@ -47,7 +43,6 @@ const Article = (props) => {
         console.log(err);
       });
   };
-
   const updateComment = (id, comment) => {
     if (updateId !== id) {
       return setUpdateId(id);
@@ -77,17 +72,14 @@ const Article = (props) => {
         console.log(err);
       });
   };
-
   const deleteComment = (id) => {
     const token = localStorage.getItem("token");
-
     axios
       .delete(`http://localhost:5000/comments/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-
       .then((result) => {
         getArticleById();
       })
@@ -95,11 +87,9 @@ const Article = (props) => {
         console.log(err);
       });
   };
-
   const Comment = ({ comment, id, name, commenterId }) => {
     const userId = localStorage.getItem("userId");
     const [updatedComment, setUpdatedComment] = useState("");
-
     return (
       <div className="contant">
         <div className="user">
@@ -129,7 +119,6 @@ const Article = (props) => {
           disabled={updateId !== id}
           onChange={(e) => setUpdatedComment(e.target.value)}
         />
-
         {commenterId === userId ? (
           <div className="comment">
             <p onClick={() => updateComment(id, updatedComment)}>
@@ -174,7 +163,6 @@ const Article = (props) => {
       </div>
     );
   };
-
   const ShowComments = () => {
     console.log(article);
     const comments = article.comments.map((comment) => {
@@ -190,7 +178,6 @@ const Article = (props) => {
     });
     return comments;
   };
-
   return (
     <>
       <div
@@ -218,7 +205,6 @@ const Article = (props) => {
             >
               <input
                 className="form-control"
-
                 type="text"
                 placeholder="comment here"
                 value={comment}
@@ -226,7 +212,6 @@ const Article = (props) => {
                   setComment(e.target.value);
                 }}
               />
-
               <button
                 id="buttonCommente"
                 className="btn btn-primary
@@ -247,5 +232,4 @@ const Article = (props) => {
     </>
   );
 };
-
 export default Article;
