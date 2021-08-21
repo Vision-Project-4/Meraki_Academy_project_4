@@ -9,13 +9,7 @@
     border: none;
     background-color: white;
   }
-  .comment{
-    cursor: pointer;
-    text-decoration: underline;
-    font-family: -webkit-body;
-      display: flex;
-      gap: 9px;
-  }
+
   .addComment{
     /* display: flex; */
       gap: 15px;
