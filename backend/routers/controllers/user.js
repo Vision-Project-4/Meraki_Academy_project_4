@@ -26,7 +26,20 @@ const createNewUser = (req, res) => {
     });
 };
 
+const getUserDataById = (req, res) => {
+  const id = req.params.id;
+  user
+    .findOne({ _id: id })
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+};
+
 
 module.exports={
-    createNewUser
+    createNewUser,
+    getUserDataById
 }

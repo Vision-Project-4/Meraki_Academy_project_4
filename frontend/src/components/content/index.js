@@ -10,6 +10,7 @@ import Article from "../article";
 import Booking from "../booking/index"
 import Register from "../register";
 import Header from "../header";
+import MyBooking from "../myBooking";
 
 
 
@@ -32,8 +33,9 @@ const Content = () => {
      <Route exact path="/login" render={()=><Login func={setToken}/>}/> 
      <Route path="/articles/:articlesId" component={Article} />
      <Route exact path="/booking"   render={()=><Booking token={token}/>}/>
-     <Route exact path="/getbooking"   render={()=><getBooking token={token}/>}/>
+     {/* <Route exact path="/getbooking"   render={()=><getBooking token={token}/>}/> */}
      <Route exact path="/register"  component={Register} />
+     <Route exact path="/myBooking"  component={MyBooking} />
      
      </Switch>
      

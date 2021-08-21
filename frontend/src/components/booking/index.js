@@ -59,7 +59,7 @@ const booking1=(e)=>{
       date:date1,
     }).then((result)=>{
 
-        console.log(result.data);
+        console.log(result.data,"uuuuuuuu");
         history.push("/home")
     }).catch((err)=>{
         console.log(err);
