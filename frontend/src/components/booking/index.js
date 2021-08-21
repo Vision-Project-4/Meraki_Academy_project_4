@@ -36,7 +36,7 @@ const Booking = ({ token }) => {
     }
   });
 
-  const [time, setTime] = useState("10:00");
+  const [time, setTime] = useState("10:00 AM");
 
   let mDate = moment(date1);
   let x = mDate.format("YYYY-MM-DD");
@@ -55,6 +55,7 @@ const Booking = ({ token }) => {
         name: name1,
         vaccineName,
         date: date1,
+        time
       })
       .then((result) => {
         history.push("/home");
@@ -105,21 +106,21 @@ const Booking = ({ token }) => {
         <div style={{ display: "flex", gap: "72px", marginTop: "10px" }}>
           <button
             onClick={() => {
-              setTime("8:00");
+              setTime("8:00 AM");
             }}
           >
             8:00 AM
           </button>
           <button
             onClick={() => {
-              setTime("10:00");
+              setTime("10:00 AM");
             }}
           >
             10:00 AM
           </button>
           <button
             onClick={() => {
-              setTime("13:00");
+              setTime("1:00 PM");
             }}
           >
             1:00 PM

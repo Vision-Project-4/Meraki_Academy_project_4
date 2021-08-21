@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import moment from "moment";
 require("dotenv").config();
+
 
 const MyBooking = () => {
   const [userBooking, setUserBooking] = useState({ user: {} });
@@ -32,7 +34,8 @@ const MyBooking = () => {
               <li className="list-group-item">
                 Vaccine Name: {userBooking.vaccineName}
               </li>
-              <li className="list-group-item">Date: {userBooking.date}</li>
+              <li className="list-group-item">Date: {moment(userBooking.date).format("DD-MM-YYYY")}</li>
+              <li className="list-group-item">Time: {userBooking.time}</li>
               <li className="list-group-item">
                 Email: {userBooking.user.email}
               </li>

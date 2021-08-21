@@ -1,13 +1,16 @@
 const express = require("express");
 const booking = require("../../db/models/booking");
+const moment = require("moment")
 
 const create_new_booking = (req, res) => {
-  const { vaccineName, name, } = req.body;
+  const { vaccineName, name,time } = req.body;
   const date = new Date(req.body.date)
+  const date1 =  moment(date).format("YYYY-MM-DD")
   const booking1 = new booking({
     vaccineName,
     user: name,
-    date,
+    date:date1 ,
+    time
   });
   booking1
     .save()
