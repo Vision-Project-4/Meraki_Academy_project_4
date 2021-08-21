@@ -75,7 +75,7 @@ const Booking = ({ token }) => {
         </div>
 
         <div className="ChooseVaccine">
-          <label htmlFor="vaccineName">Choose vaccine Name:</label>
+          <label htmlFor="vaccineName">Choose Vaccine Name:</label>
           <select
             id="vaccineName"
             name="vaccineName"
@@ -134,7 +134,7 @@ const Booking = ({ token }) => {
           }}
           onClick={booking1}
         >
-          booking
+          Book Now
         </button>
       </div>
     </>
