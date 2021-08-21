@@ -8,12 +8,12 @@ const options = {
 	useFindAndModify: false,
 };
 
-// connecting mongoose
-mongoose.connect("mongodb://localhost:27017/Project4", options).then(
-	() => {
-		console.log('DB Ready To Use');
-	},
-	(err) => {
-		console.log(err);
-	},
-);
+// // connecting mongoose
+// mongoose.connect("mongodb://localhost:27017/Project4", options).then(
+// 	() => {
+// 		console.log('DB Ready To Use');
+// 	},
+// 	(err) => {
+// 		console.log(err);
+// 	},
+// );
