@@ -69,12 +69,6 @@ const Booking = ({ token }) => {
   return (
     <>
       <div className="allContent"
-        style={{
-          margin: "auto",
-          display: "block",
-          marginLeft: "170px",
-          marginTop: "30px",
-        }}
       >
         <div className="name">
           <p>Name: {name}</p>
