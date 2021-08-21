@@ -74,7 +74,7 @@ const Booking = ({ token }) => {
           <p>Name: {name}</p>
         </div>
 
-        <div>
+        <div className="ChooseVaccine">
           <label htmlFor="vaccineName">Choose vaccine Name:</label>
           <select
             id="vaccineName"
@@ -83,13 +83,16 @@ const Booking = ({ token }) => {
               setVaccineName(e.target.value);
             }}
           >
+           
             <option value="select" selected>
               -- select --
             </option>
             <option value="Oxford">Oxford/AstraZeneca</option>
             <option value="Pfizer">Pfizer</option>
             <option value="Sinopharm">Sinopharm </option>
+         
           </select>
+          
         </div>
         <br />
 
@@ -99,21 +102,21 @@ const Booking = ({ token }) => {
         {console.log(date)}
 
         <div style={{ display: "flex", gap: "72px", marginTop: "10px" }}>
-          <button
+          <button type="button" class="btn btn-primary btn-sm"
             onClick={() => {
               setTime("8:00 AM");
             }}
           >
             8:00 AM
           </button>
-          <button
+          <button type="button" class="btn btn-primary btn-sm"
             onClick={() => {
               setTime("10:00 AM");
             }}
           >
             10:00 AM
           </button>
-          <button
+          <button type="button" class="btn btn-primary btn-sm"
             onClick={() => {
               setTime("1:00 PM");
             }}
@@ -123,13 +126,13 @@ const Booking = ({ token }) => {
         </div>
         {console.log(formatedDateTime)}
 
-        <button
+        <button type="button" class="btn btn-primary btn-lg btn-block"
           style={{
-            margin: "auto",
-            width: "70px",
+            margin: "10px 0% 135px ",
+            width: "55%",
             display: "block",
-            marginLeft: "135px",
-            marginTop: "10px",
+            // marginLeft: "135px",
+            // marginTop: "10px",
           }}
           onClick={booking1}
         >
