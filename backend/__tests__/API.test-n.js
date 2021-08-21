@@ -8,7 +8,7 @@ describe("Test if the Jest work", () => {
   });
 });
 const mongoose = require("mongoose");
-const app = require("../server");
+const app = require("../server.js");
 const request = require("supertest");
 
 const options = {
@@ -18,8 +18,68 @@ const options = {
   useFindAndModify: false,
 };
 mongoose.connect("mongodb://localhost:27017/testing", options);
+const articles = require("../db/models/articles")
+beforeAll(async () => {
+  await articles.remove();
+});
+afterEach(async () => {
+  await articles.remove();
+});
+afterAll(async () => {
+  await articles.remove();
+  await mongoose.connection.close();
+});
 
-const Roles = require("../db/models/role");
+describe("Testing the module", () => {
+  it("check if the model defined", () => {
+    expect(articles).toBeDefined();
+  });
+  it("Should save a article", async () => {
+    const articleInfo = {
+    title:"title",
+    description:"description",
+    img:"img",
+    };
+    const newArticle = new articles(articleInfo);
+    await newArticle.save();
+
+    const checkArticle = await articles.findOne({ title:"title"});
+    expect(checkArticle.title).toBe(articleInfo.title);
+  });
+});
+describe("Testing article APIs", () => {
+  const article = {
+    title:"title",
+    description:"description",
+    img:"img",
+    };
+  it("shuold be able to creat a article", async () => {
+    const newArticle = await request(app).post("/articles").send( article);
+    expect(typeof newArticle.body).toEqual(typeof  article);
+    expect( newArticle.body).toHaveProperty("_id");
+    expect( newArticle.statusCode).toBe(201);
+    expect( newArticle.body.title).toBe(article.title);
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const Roles = require("../db/models/role");
 
 // const user = require("../db/models/user");
 // const booking = require("../db/models/booking");
@@ -34,22 +94,22 @@ const Roles = require("../db/models/role");
 //   await mongoose.connection.close();
 // });
 
-describe("Testing the module", () => {
-  it("check if the model defined", () => {
-    expect(Roles).toBeDefined();
-  });
-  it("Should save a User", async () => {
-    const roleInfo = {
-      role: "Noof",
-      permissions: []
-    };
-    const user = new Roles(roleInfo);
-    await user.save();
+// describe("Testing the module", () => {
+//   it("check if the model defined", () => {
+//     expect(Roles).toBeDefined();
+//   });
+//   it("Should save a User", async () => {
+//     const roleInfo = {
+//       role: "Noof",
+//       permissions: []
+//     };
+//     const user = new Roles(roleInfo);
+//     await user.save();
 
-    const checkUser = await Roles.findOne({ role: "Noof"});
-    expect(checkUser.firstName).toBe(roleInfo.firstName);
-  });
-});
+//     const checkUser = await Roles.findOne({ role: "Noof"});
+//     expect(checkUser.firstName).toBe(roleInfo.firstName);
+//   });
+// });
 
 
 // describe("Testing the module", () => {
