@@ -101,7 +101,7 @@ const Booking = ({ token }) => {
         </div>
         {console.log(date)}
 
-        <div style={{ display: "flex", gap: "72px", marginTop: "10px" }}>
+        <div style={{ display: "flex", gap: "68px", marginTop: "10px" }}>
           <button type="button" class="btn btn-primary btn-sm"
             onClick={() => {
               setTime("8:00 AM");
@@ -129,10 +129,8 @@ const Booking = ({ token }) => {
         <button type="button" class="btn btn-primary btn-lg btn-block"
           style={{
             margin: "10px 0% 135px ",
-            width: "55%",
+            width: "37%",
             display: "block",
-            // marginLeft: "135px",
-            // marginTop: "10px",
           }}
           onClick={booking1}
         >
