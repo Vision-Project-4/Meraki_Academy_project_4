@@ -6,7 +6,8 @@ const jwt = require('jsonwebtoken');
 
 const commentSchema = new mongoose.Schema({
     comment : {type: String , required : true},
-    commenter : {type: mongoose.Schema.Types.ObjectId , ref:"User" ,  required : true},
+    commenter : {type: mongoose.Schema.Types.ObjectId , ref:"User" },
 })
 
-module.exports = mongoose.model("Comments", commentSchema);
+const comments  = mongoose.model("Comments", commentSchema);
+module.exports = comments;
