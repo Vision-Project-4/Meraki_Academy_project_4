@@ -7,7 +7,7 @@ const Footer = () => {
         <section className="bg-white">
           <div className="container">
             <div className="row">
-              <div className="col-lg-4 col-md-4 col-sm-12">
+              <div className="col-lg-6 col-md-6 col-sm-12">
                 <div className="contact-info">
                   <h6>Contact us</h6>
                   <ul className="fa-ul">
@@ -37,12 +37,7 @@ const Footer = () => {
                   </ul>
                 </div>
               </div>
-              <div className="col-lg-4 col-md-4 col-sm-12">
-                <div className="container d-flex justify-content-center align-items-center">
-                  <p>All copyrights are reserved <i className="far fa-copyright"></i></p>
-                </div>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-12">
+              <div className="col-lg-6 col-md-6 col-sm-12">
                 <div className="container">
                   <h6>Follow us</h6>
                   <ul>
